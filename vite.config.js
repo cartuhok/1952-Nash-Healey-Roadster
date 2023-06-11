@@ -9,7 +9,7 @@ export default {
     ],
     root: 'src/',
     publicDir: "../public/",
-    base: './',
+    base: '/1952-Nash-Healey-Roadster/',
     server:
     {
         host: true,
