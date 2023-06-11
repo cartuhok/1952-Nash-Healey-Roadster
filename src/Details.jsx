@@ -59,7 +59,7 @@ const Details = () => {
           <h2>The Process</h2>
           <p>This project is the product of approximately one year of learning Three.js and Blender. I spent the first half of the year learning Blender and the second half learning Three.js. In retrospect, that order was definitely the right decision. Learning about the nomenclature of the 3D environment (vertices, normals, texture mapping) as well as how to properly set up a 3D scene (camera, lights, subject) was definitely much easier in Blender, where I could make adjustments without code and see the results in real time. I believe that if I had started with Three.js without being introduced to at least the basics in Blender, it would have made things more challenging.</p>
         </div>
-        <img src="./static/process.png" alt="The Process" />
+        <img src="./process.png" alt="The Process" />
       </div>
       <div className="content-item row-reverse">
         <div className="text-content">

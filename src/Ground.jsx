@@ -7,8 +7,8 @@ export default function Ground() {
 
 
     const [ roughness, normal ] = useLoader(TextureLoader, [
-        "./static/terrain-roughness.jpg",
-        "./static/terrain-normals.jpg",
+        "./terrain-roughness.jpg",
+        "./terrain-normals.jpg",
     ])
 
     useEffect(() => {
