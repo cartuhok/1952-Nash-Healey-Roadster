@@ -7,8 +7,8 @@ export default {
     [
         react()
     ],
-    // root: 'src/',
-    // publicDir: "../public/",
+    root: 'src/',
+    publicDir: "../public/",
     base: '/1952-Nash-Healey-Roadster/',
     server:
     {
