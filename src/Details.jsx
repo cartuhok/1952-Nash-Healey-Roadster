@@ -66,7 +66,7 @@ const Details = () => {
           <h2>Optimization</h2>
           <p>I followed a <a href="https://www.udemy.com/course/blender-3_0-vintage-car-creation/" target="_blank">Udemy course</a> to model the Roadster. It was enjoyable and challenging, and the result speaks for itself. However, the model was not intended to be imported into a game or web experience. Towards the end of the course, I was approaching 2 million triangles, and optimizations needed to be made. I started by adding the decimate modifier to each individual object in Blender. I was able to reduce the total triangle count from 1.8+ million to under 280k without compromising the visual integrity of the model. I then grouped the objects that would share the same textures, reducing the number of calls from 89 to 17. I also used matcap textures that I made in Blender, further increasing optimization by eliminating the need for extensive lighting calculations.</p>
         </div>
-        <img src="./static/matcaps.png" alt="Header 2" />
+        <img src="./matcaps.png" alt="Header 2" />
       </div>
       <div className="bottom">
         <div className="code-container">
