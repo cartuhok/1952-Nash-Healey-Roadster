@@ -33,28 +33,28 @@ export default function NashHealey({ carColor, seatColor, interiorColor, stitchi
     }, []);
 
     const textures = useMemo(() => {[
-        useLoader(TextureLoader, "./static/blackpaint.png"),
-        useLoader(TextureLoader, "./static/greenpaint.png"),
-        useLoader(TextureLoader, "./static/redpaint.png"),
-        useLoader(TextureLoader, "./static/blackleather.png"),
-        useLoader(TextureLoader, "./static/redleather.png"),
-        useLoader(TextureLoader, "./static/creamleather.png"),
-        useLoader(TextureLoader, "./static/chrome.png"),
+        useLoader(TextureLoader, "./blackpaint.png"),
+        useLoader(TextureLoader, "./greenpaint.png"),
+        useLoader(TextureLoader, "./redpaint.png"),
+        useLoader(TextureLoader, "./blackleather.png"),
+        useLoader(TextureLoader, "./redleather.png"),
+        useLoader(TextureLoader, "./creamleather.png"),
+        useLoader(TextureLoader, "./chrome.png"),
     ]}, [])
 
-    const carPaint = useTexture(`./static/${carColor}.png`);
-    const leather = useTexture(`./static/${seatColor}.png`);
-    const interior = useTexture(`./static/${interiorColor}.png`);
-    const stitching = useTexture(`./static/${stitchingColor}.png`);
-    const chrome = useTexture('./static/chrome.png')
+    const carPaint = useTexture(`./${carColor}.png`);
+    const leather = useTexture(`./${seatColor}.png`);
+    const interior = useTexture(`./${interiorColor}.png`);
+    const stitching = useTexture(`./${stitchingColor}.png`);
+    const chrome = useTexture('./chrome.png')
 
     // const [ chrome ] = useMatcapTexture('3B3C3F_DAD9D5_929290_ABACA8', 256)
 
-    const leatherNormals = useTexture('./static/leatherNormals.jpeg')
-    const leatherRoughness = useTexture('./static/leatherRoughness.jpg')
+    const leatherNormals = useTexture('./leatherNormals.jpeg')
+    const leatherRoughness = useTexture('./leatherRoughness.jpg')
 
-    const carpetNormals = useTexture('./static/carpetNormal.jpg')
-    const carpetRoughness = useTexture('./static/carpetRoughness.jpg')
+    const carpetNormals = useTexture('./carpetNormal.jpg')
+    const carpetRoughness = useTexture('./carpetRoughness.jpg')
 
     const car = useRef()
 
