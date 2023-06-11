@@ -9,7 +9,7 @@ import { TextureLoader } from "three";
 
 
 export default function NashHealey({ carColor, seatColor, interiorColor, stitchingColor }) {
-    const { nodes, materials } = useGLTF("/NashHealey.glb");
+    const { nodes, materials } = useGLTF("./models/NashHealey.glb");
 
     const [scale, setScale] = useState(window.innerWidth <= 768 ? 1 : 1.4);
 
@@ -282,4 +282,4 @@ export default function NashHealey({ carColor, seatColor, interiorColor, stitchi
   );
 }
 
-useGLTF.preload("/NashHealey.glb");
+useGLTF.preload("./models/NashHealey.glb");
