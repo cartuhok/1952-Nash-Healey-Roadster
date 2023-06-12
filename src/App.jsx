@@ -4,6 +4,7 @@ import Scene from './Scene.jsx'
 import Rightbar from './RightBar'
 import Details from './Details'
 import Loading from './Loading'
+import Arrow from './Arrow'
 import { useState, Suspense } from 'react'
 
 export default function App() {
@@ -28,6 +29,7 @@ export default function App() {
         </Suspense>
       </Canvas>
       <Rightbar setCarColor={setCarColor} setSeatColor={setSeatColor} setInteriorColor={setInteriorColor} setStitchingColor={setStitchingColor} />
+      <Arrow />
       <Details />
     </div>
   )
