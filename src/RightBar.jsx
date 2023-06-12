@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import './style.css';
+import React, { useState } from 'react'
+import './style.css'
 
-// Config for colors. Defines what colors are available for each type
+// Defines what colors are available for each section and sets the circle select color
 const COLOR_CONFIG = {
   'Paint': [
     { colorName: 'greenpaint', colorCode: '#819b92' },
@@ -23,7 +23,7 @@ const COLOR_CONFIG = {
     { colorName: 'redleather', colorCode: '#4d1d1c' },
     { colorName: 'blackleather', colorCode: '#000000' }
   ]
-};
+}
 
 
 // The initial selected colors when the component mounts
@@ -32,7 +32,7 @@ const INITIAL_COLORS = {
   'Interior': 'blackleather',
   'Seating': 'creamleather',
   'Stitching': 'blackleather',
-};
+}
 
 // A map that associates each color type with a handler function for updating it
 const colorChangeHandlers = {
@@ -40,69 +40,62 @@ const colorChangeHandlers = {
   'Interior': 'setInteriorColor',
   'Seating': 'setSeatColor',
   'Stitching': 'setStitchingColor',
-};
+}
 
-//The Rightbar component, it displays a set of sections for choosing colors, and lets the user select a color for each type
+//The Rightbar component, displays a set of sections for choosing colors
 const Rightbar = ({ setCarColor, setSeatColor, setInteriorColor, setStitchingColor }) => {
   
   // The currently selected tab
-  const [selectedTab, setSelectedTab] = useState('Paint');
+  const [selectedTab, setSelectedTab] = useState('Paint')
 
   // The currently selected color for each type
-  const [selectedColors, setSelectedColors] = useState(() => INITIAL_COLORS);
+  const [selectedColors, setSelectedColors] = useState(() => INITIAL_COLORS)
 
   // Style object for the circles that represent colors
   const circleStyle = {
     display: 'inline-block',
     marginRight: '10px',
     cursor: 'pointer'
-  };
-
-  // Function that handles when a section is clicked
-  // It changes the currently selected section
-  const handleTabClick = (tabName) => {
-    setSelectedTab(tabName);
   }
 
+  // Change the current selection 
+  const handleTabClick = (tabName) => {
+    setSelectedTab(tabName)
+  }
 
-  // Function that handles when a color is clicked
-  // It changes the selected color for the relevant type and calls the associated handler function
+  // Change color
   const handleColorClick = (tabName, colorName) => {
 
     // Update the selected color for the clicked type
     setSelectedColors(prevColors => ({
       ...prevColors,
       [tabName]: colorName
-    }));
+    }))
 
     // Call the associated handler function with the new color
-    const handlerName = colorChangeHandlers[tabName];
-    const handler = { setCarColor, setSeatColor, setInteriorColor, setStitchingColor }[handlerName];
+    const handlerName = colorChangeHandlers[tabName]
+    const handler = { setCarColor, setSeatColor, setInteriorColor, setStitchingColor }[handlerName]
     handler(colorName)
   }
-
-  
 
   // Map over each type of color to create a section for each
   const colorComponents = Object.keys(COLOR_CONFIG).map(tabName => {
 
     // Get the colors for this type
-    const colors = COLOR_CONFIG[tabName];
+    const colors = COLOR_CONFIG[tabName]
 
     // Create an array of color circles
     const circles = colors.map(({ colorName, colorCode }) => {
       // Check if this color is the currently selected one for this type
-      const isSelected = selectedColors[tabName] === colorName;
+      const isSelected = selectedColors[tabName] === colorName
       // Style object for this color circle
       const circleStyles = {
         ...circleStyle,
         backgroundColor: colorCode,
         border: isSelected ? '2px solid dodgerblue' : '2px solid white'
-      };
+      }
 
-      
-
-      // Return a circle that represents this color
+      // Return a circle that represents the color
       return (
         <p
           key={colorName}
@@ -110,22 +103,18 @@ const Rightbar = ({ setCarColor, setSeatColor, setInteriorColor, setStitchingCol
           style={circleStyles}
           className='circle'
         ></p>
-      );
-    });
+      )
+    })
 
+    const selectedClass = selectedTab === tabName ? 'selected' : ''
 
-
-    // CSS class to add if this section is the currently selected tab
-    const selectedClass = selectedTab === tabName ? 'selected' : '';
-
-    // Return a section for this type
     return (
       <div key={tabName} className={`colors ${tabName} ${selectedClass}`}>
         <h3>{tabName}</h3>
         {circles}
       </div>
-    );
-  });
+    )
+  })
 
   return (
     <div className="rightbar">
@@ -134,9 +123,6 @@ const Rightbar = ({ setCarColor, setSeatColor, setInteriorColor, setStitchingCol
       </div>
       <div className="rightbarContainer">
         <div className="tabs">
-          {/* The tabs for each color type */}
-          {/* Each tab changes the selected tab when clicked */}
-          {/* If a tab is the selected one, it has the 'active' CSS class */}
           <div onClick={() => handleTabClick('Paint')} className={selectedTab === 'Paint' ? 'active' : ''}>Paint</div>
           <div onClick={() => handleTabClick('Interior')} className={selectedTab === 'Interior' ? 'active' : ''}>Interior</div>
           <div onClick={() => handleTabClick('Seating')} className={selectedTab === 'Seating' ? 'active' : ''}>Seating</div>
@@ -145,8 +131,8 @@ const Rightbar = ({ setCarColor, setSeatColor, setInteriorColor, setStitchingCol
         {colorComponents}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Rightbar;
+export default Rightbar
 

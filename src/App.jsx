@@ -23,13 +23,12 @@ export default function App() {
           position: [6, 2, 3],
         }}
       >
-        <Suspense fallback={<Loading />}>
+        <Suspense fallback={<Loading />}>   
           <Scene carColor={carColor} seatColor={seatColor} interiorColor={interiorColor} stitchingColor={stitchingColor} />
         </Suspense>
       </Canvas>
-        <Rightbar setCarColor={setCarColor} setSeatColor={setSeatColor} setInteriorColor={setInteriorColor} setStitchingColor={setStitchingColor} />
+      <Rightbar setCarColor={setCarColor} setSeatColor={setSeatColor} setInteriorColor={setInteriorColor} setStitchingColor={setStitchingColor} />
       <Details />
-   
     </div>
   )
 }
