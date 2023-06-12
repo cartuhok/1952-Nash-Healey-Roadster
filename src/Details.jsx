@@ -13,7 +13,7 @@ const Details = () => {
   
     return (
       <Canvas>
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loading />}>
           <Scene carColor={carColor} seatColor={seatColor} interiorColor={interiorColor} stitchingColor={stitchingColor} />
         </Suspense>
         <Rightbar setCarColor={setCarColor} setSeatColor={setSeatColor} setInteriorColor={setInteriorColor} setStitchingColor={setStitchingColor} />
