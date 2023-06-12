@@ -1,14 +1,26 @@
 import { OrbitControls, Html } from '@react-three/drei'
 import Ground from './Ground'
 import NashHealey from './NashHealey'
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 
-export default function Scene({ carColor, seatColor, interiorColor, stitchingColor })
-{
+export default function Scene({ carColor, seatColor, interiorColor, stitchingColor }) {
+
+    const [zoom, setZoom] = useState(window.innerWidth <= 1024 ? true : false)
 
     const textRef = useRef()
 
     const [hidden, set] = useState()
+
+    //Enable camera zoom on mobile
+    useEffect(() => {
+      const handleResize = () => window.innerWidth <= 1024 ? setZoom(true) : setZoom(false)
+
+      window.addEventListener('resize', handleResize)
+
+      handleResize()
+      
+      return () => window.removeEventListener('resize', handleResize)
+    }, [])
 
     return <>
         <Html 
@@ -44,7 +56,7 @@ export default function Scene({ carColor, seatColor, interiorColor, stitchingCol
             minPolarAngle={0.5}
             autoRotateSpeed={0.5}
             enablePan={false}
-            enableZoom={false}
+            enableZoom={zoom}
             maxDistance={7}
             
         />

@@ -6,11 +6,11 @@ import { TextureLoader } from "three"
 export default function NashHealey({ carColor, seatColor, interiorColor, stitchingColor }) {
   const { nodes, materials } = useGLTF("./models/NashHealey.glb")
 
-  const [scale, setScale] = useState(window.innerWidth <= 768 ? 1 : 1.4)
+  const [scale, setScale] = useState(window.innerWidth <= 1024 ? 1 : 1.4)
 
   //Set Roadster's Mobile Scale
   useEffect(() => {
-    const handleResize = () => window.innerWidth <= 768 ? setScale(1) : setScale(1.4)
+    const handleResize = () => window.innerWidth <= 1024 ? setScale(1) : setScale(1.4)
 
     window.addEventListener('resize', handleResize)
 
