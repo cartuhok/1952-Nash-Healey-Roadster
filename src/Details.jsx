@@ -26,7 +26,7 @@ const Details = () => {
     // setup Camera, Controls, etc...
     
     return (
-      <NashHealeyC carColor={carColor} seatColor={seatColor} interiorColor={interiorColor} stitchingColor={stitchingColor} />
+      <NashHealey carColor={carColor} seatColor={seatColor} interiorColor={interiorColor} stitchingColor={stitchingColor} />
     )
   }`
 
@@ -56,14 +56,14 @@ const Details = () => {
       <div className="content-item row">
         <div className="text-content">
           <h2>The Process</h2>
-          <p>This project is the product of approximately one year of learning Three.js and Blender. I spent the first half of the year learning Blender and the second half learning Three.js. In retrospect, that order was definitely the right decision. Learning about the nomenclature of the 3D environment (vertices, normals, texture mapping) as well as how to properly set up a 3D scene (camera, lights, subject) was definitely much easier in Blender, where I could make adjustments without code and see the results in real time. I believe that if I had started with Three.js without being introduced to at least the basics in Blender, it would have made things more challenging.</p>
+          <p>This project is the result of approximately one year of learning Three.js and Blender with the goal of creating interactive 3D experiences. I spent the first half of the year learning Blender, starting with <a href="https://polygonrunway.com/p/become-a-3d-illustrator" target="_blank">Polygon Runway's Become a 3D Illustrator</a> and then moving on to other online courses. I then started learning Three.js and React Three Fiber, and I recently completed <a href="https://threejs-journey.com/" target="_blank">Bruno Simon's Three.js Journey</a>. Although it may have been easier to simply use a car model from Sketchfab, I believe that learning Blender, especially first, was the right decision. It allowed me to learn about the nomenclature of the 3D environment (vertices, normals, texture mapping) as well as how to properly set up a 3D scene (camera, lights, subject), without having to worry about coding. It also allows me to create more customized interactive 3D experiences when it comes time to code, without having to rely on pre-built models or simple geometry.</p>
         </div>
         <img src="./process.png" alt="The Process" />
       </div>
       <div className="content-item row-reverse">
         <div className="text-content">
           <h2>Optimization</h2>
-          <p>I followed a <a href="https://www.udemy.com/course/blender-3_0-vintage-car-creation/" target="_blank">Udemy course</a> to model the Roadster. It was enjoyable and challenging, and the result speaks for itself. However, the model was not intended to be imported into a game or web experience. Towards the end of the course, I was approaching 2 million triangles, and optimizations needed to be made. I started by adding the decimate modifier to each individual object in Blender. I was able to reduce the total triangle count from 1.8+ million to under 280k without compromising the visual integrity of the model. I then grouped the objects that would share the same textures, reducing the number of calls from 89 to 17. I also used matcap textures that I made in Blender, further increasing optimization by eliminating the need for extensive lighting calculations.</p>
+          <p>I followed a <a href="https://www.udemy.com/course/blender-3_0-vintage-car-creation/" target="_blank">Udemy course</a> to model the Roadster. It was both enjoyable and challenging, and the final product is a testament to the course's quality. However, the model was not intended to be imported into a game or web experience. Towards the end of the course, I was approaching 2 million triangles, and optimizations needed to be made. I started by adding the decimate modifier to each individual object in Blender. I was able to reduce the total triangle count from 1.8+ million to under 280k without compromising the visual integrity of the model. I then grouped the objects that would share the same textures, reducing the number of calls from 89 to 17, and exported using Draco compression. I also used matcap textures that I made in Blender using a simple sphere and plane, further increasing optimization by eliminating the need for extensive lighting calculations.</p>
         </div>
         <img src="./matcaps.png" alt="Header 2" />
       </div>
